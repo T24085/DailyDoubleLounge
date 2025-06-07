@@ -1,49 +1,10 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Eclipse Bar & Grill - Enjoy great food and drinks in Raytown, MO. Dine-in, takeout, and delivery available.">
-  <title>Eclipse Bar & Grill - Raytown, MO</title>
+  <meta name="description" content="Daily Double Lounge - Enjoy great drinks and vibes in Raytown, MO. Dine-in and takeout available.">
+  <title>Daily Double Lounge - Raytown, MO</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -60,13 +21,13 @@
       justify-content: center;
       color: #fff;
       text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-      background: url('https://github.com/T24085/EclipseBarGrill/blob/main/pexels-pixabay-159291.jpg?raw=true') no-repeat center/cover;
+      background: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true') no-repeat center/cover;
       animation: backgroundChange 10s infinite;
     }
     @keyframes backgroundChange {
-      0% { background-image: url('https://github.com/T24085/EclipseBarGrill/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
-      50% { background-image: url('https://github.com/T24085/EclipseBarGrill/blob/main/pexels-pixabay-301692.jpg?raw=true'); }
-      100% { background-image: url('https://github.com/T24085/EclipseBarGrill/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
+      0% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
+      50% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-301692.jpg?raw=true'); }
+      100% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
     }
     header h1 {
       font-size: 3rem;
@@ -125,7 +86,7 @@
 </head>
 <body>
   <header>
-    <h1>Eclipse Bar & Grill</h1>
+    <h1>Daily Double Lounge</h1>
   </header>
   <nav>
     <a href="#home">Home</a>
@@ -134,25 +95,25 @@
     <a href="#contact">Contact</a>
   </nav>
   <div class="section" id="home">
-    <h2>Welcome to Eclipse Bar & Grill</h2>
-    <p>Enjoy a warm atmosphere with great food and drinks in the heart of Raytown, MO. Whether you're here for dine-in, takeout, or delivery, we've got you covered!</p>
+    <h2>Welcome to Daily Double Lounge</h2>
+    <p>Experience a lively atmosphere with great drinks and entertainment in Raytown, MO. Open for dine-in and takeout!</p>
   </div>
   <div class="section menu" id="menu">
     <h2>Our Menu</h2>
-    <p>Hours: 11:00 AM - 1:30 AM, Daily</p>
-    <p>$10-20 per person | Open now (as of 11:18 AM CDT, Saturday, June 07, 2025)</p>
-    <p>Call us at (816) 356-0550 to place an order or ask about our daily specials!</p>
+    <p>Hours: 10:00 AM - 1:30 AM, Daily</p>
+    <p>$10-20 per person | Open now (as of 12:22 PM CDT, Saturday, June 07, 2025)</p>
+    <p>Call us at +1 816-737-1730 to place an order or inquire about specials!</p>
   </div>
   <div class="section location" id="location">
     <h2>Find Us</h2>
-    <p>6512 Raytown Rd, Raytown, MO 64133</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3159.717123456789!2d-94.463751!3d39.006711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0f4e9e5f6d4e9%3A0x1234567890abcdef!2sEclipse+Bar+%26+Grill!5e0!3m2!1sen!2sus!4v1623456789!5m2!1sen!2sus" allowfullscreen></iframe>
+    <p>11509 E 63rd St, Raytown, MO 64133</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3159.717123456789!2d-94.44661965779204!3d39.006690584689004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c0f4e9e5f6d4e9%3A0x1234567890abcdef!2sDaily+Double+Lounge!5e0!3m2!1sen!2sus!4v1623456789!5m2!1sen!2sus" allowfullscreen></iframe>
   </div>
   <div class="section contact" id="contact">
     <h2>Contact Us</h2>
-    <p>Phone: <a href="tel:+18163560550">(816) 356-0550</a></p>
-    <p>Email: <a href="mailto:eclipsebargrill@example.com">eclipsebargrill@example.com</a></p>
-    <p>Order online or visit us today!</p>
+    <p>Phone: <a href="tel:+18167371730">+1 816-737-1730</a></p>
+    <p>Email: Not listed; please call or visit for more info.</p>
+    <p>Visit us at 11509 E 63rd St or check local directories for updates!</p>
   </div>
   <script>
     // Simple scroll behavior for smooth navigation
