@@ -7,79 +7,153 @@
   <title>Daily Double Lounge - Raytown, MO</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
-      color: #333;
+      background: #f5f7fa url('https://www.transparenttextures.com/patterns/stardust.png');
+      color: #2d3748;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     header {
-      height: 400px;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true') no-repeat center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-      background: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true') no-repeat center/cover;
-      animation: backgroundChange 10s infinite;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
     }
-    @keyframes backgroundChange {
-      0% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
-      50% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-301692.jpg?raw=true'); }
-      100% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 4.5rem;
       margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8);
+      animation: pulse 2s infinite alternate;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
     }
     nav {
-      background: #222;
-      padding: 1rem;
+      background: linear-gradient(90deg, #e0e7f0, #d1dfe7);
+      padding: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     nav a {
-      color: #fff;
+      color: #2c5282;
       text-decoration: none;
-      margin: 0 1.5rem;
-      font-weight: bold;
+      margin: 0 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
     }
     nav a:hover {
-      color: #ff6f61;
+      color: #e53e3e;
+      text-decoration: underline;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #e53e3e;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
     }
     .section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 850px;
+      margin: 4.5rem auto;
+      padding: 2.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid #edf2f7;
+      animation: slideUp 1.5s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .section h2 {
+      color: #2b6cb0;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: #2b6cb0;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .menu, .location {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ffffff, #f7fafc);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.4s ease;
+      border: 1px solid #e2e8f0;
+    }
+    .menu:hover, .location:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
     .location iframe {
       width: 100%;
-      height: 300px;
-      border: 0;
+      height: 350px;
+      border: 2px solid #e2e8f0;
       border-radius: 8px;
     }
     .contact {
       text-align: center;
     }
     .contact a {
-      color: #ff6f61;
+      color: #2b6cb0;
       text-decoration: none;
+      font-weight: 500;
     }
     .contact a:hover {
+      color: #2c5282;
       text-decoration: underline;
+    }
+    @keyframes backgroundChange {
+      0% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
+      50% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-301692.jpg?raw=true'); }
+      100% { background-image: url('https://github.com/T24085/DailyDoubleLounge/blob/main/pexels-pixabay-159291.jpg?raw=true'); }
     }
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.8rem;
       }
       nav a {
         display: block;
-        margin: 0.5rem 0;
+        margin: 0.8rem 0;
+      }
+      .section {
+        margin: 3rem auto;
+        padding: 1.5rem;
+      }
+      .location iframe {
+        height: 250px;
       }
     }
   </style>
@@ -101,8 +175,8 @@
   <div class="section menu" id="menu">
     <h2>Our Menu</h2>
     <p>Hours: 10:00 AM - 1:30 AM, Daily</p>
-    <p>$10-20 per person | Open now (as of 12:22 PM CDT, Saturday, June 07, 2025)</p>
-    <p>Call us at +1 816-737-1730 to place an order or inquire about specials!</p>
+    <p>$10-20 per person | Open now (as of 02:01 PM CDT, Saturday, June 07, 2025)</p>
+    <p>Call us at <a href="tel:+18167371730">+1 816-737-1730</a> to place an order or inquire about specials!</p>
   </div>
   <div class="section location" id="location">
     <h2>Find Us</h2>
@@ -116,7 +190,6 @@
     <p>Visit us at 11509 E 63rd St or check local directories for updates!</p>
   </div>
   <script>
-    // Simple scroll behavior for smooth navigation
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
